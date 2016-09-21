@@ -1,0 +1,235 @@
+nav .btn{
+  margin-top: 7px;
+}
+.locations{
+}
+
+.carousel,
+.item,
+.active {
+    height: 100%;
+}
+
+.carousel-inner {
+    height: 100%;
+}
+
+/* Background images are set within the HTML using inline CSS, not here */
+
+.fill {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.header{
+  text-transform: uppercase;
+}
+.header h1{
+  font-size: 3.5em;
+}
+.header h3{
+  font-size: 20px;
+}
+.navbar{
+  background-color: #252729;
+  border-color: #252729;
+}
+.navbar-default .navbar-brand,.navbar-default .navbar-nav>li>a,.navbar-default .navbar-brand,.navbar-default .navbar-nav>li>div>a {
+  color: floralwhite;
+}
+.logo{
+  padding-top: 3px;
+}
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-brand:hover, .navbar-default .navbar-nav>li>div>a:hover{
+color: #777;
+}
+.navbar-collapse .navbar-nav .page-scroll li >a:hover{color: #333;}
+.nav .open>a, .nav .open>a:hover,nav .dropdown a:hover{
+  color: #333;
+}
+.navbar-default .navbar-nav>li>a:focus{
+  color: floralwhite;
+}
+.navbar-default .navbar-nav>li>a:hover{
+  color: #777;
+}
+.dropdown{
+  margin-top: 1px;
+}
+.nav .dropdown-header{
+  font-size: 18px;
+  color:#333;
+  margin-left: -7px;
+}
+.location{
+  display: none;
+  width: 100%;
+  background-color: #333;
+  top: 51px; 
+  opacity: 0.9;
+  padding-bottom: 30px;
+}
+.location-content{
+  width: 70%;
+  margin: auto; 
+}
+.location table{
+  color: white;
+  width: 40%;
+  border-collapse: collapse;
+}
+
+.location table tbody td,.location table tr th{
+  border:none;
+}
+.location table tr th{
+    border:none;
+    padding-top: 20px;
+    padding-bottom: 0px;
+    font-size: 16px;
+}
+.location table th{
+  text-transform: capitalize;
+  font-weight: bold;
+  color: #edae49;
+  
+}
+.location table a{
+  color: white;
+  text-decoration: none;
+  transition:0.3s all;
+}
+.location table {
+  display: inline-block;
+}
+.location table a:hover{
+  opacity: 0.65;
+}
+@media (min-width: 768px){}
+.navbar-right {
+    float: right!important;
+    margin-right: 30px;
+}
+}
+@media (max-width: 770px){
+.location{
+top: 100px;
+}
+}
+.overlay {
+  position: absolute;
+  left: 0px;
+  top: 564px;
+  width: 100%;
+  height: auto;
+  background-color: #252729;
+  opacity: 0.95;
+  text-align: center;
+}
+.portfolio h2{
+  text-transform: uppercase;
+}
+#about{
+  display: none;
+}
+@media (max-width: 768px){
+.location table {
+    display: block;
+}
+}
+@media (min-width: 768px){
+.overlay .form-inline .form-group{
+    margin: 0px;
+    padding: 0px;
+    padding-top: 20px;
+    color: floralwhite;
+    border-radius: 0px;
+}
+}
+.setting{
+  width: 80px;
+  padding-bottom: 8px;
+  background-color: #edae49;
+  color: black;
+  border-radius: 2px;
+  border-color: darkgoldenrod;
+  font-weight: 500;
+}
+.overlay .btn{
+  height: 34px;
+  margin-top: 20px;
+  width: 100px;
+  background-color: #edae49;
+  color: black;
+  border-radius: 2px;
+  border-color: darkgoldenrod;
+  font-weight: 600;
+}
+.overlay .row{
+  margin-right: 0px;
+}
+.overlay .lead{
+  margin-top: 10px;
+  color: floralwhite;
+  font-weight: 500;
+}
+.overlay .row .modal-backdrop{
+  display: none;
+}
+@media (max-width: 886px){
+.overlay{
+  height: 260px;
+}}
+@media (max-width: 600px){
+.overlay{
+  height: 280px;
+}
+}
+
+
+@media (max-width: 886px){
+.overlay .form-inline input{
+  width: 530px;
+  margin: 5px auto;
+}
+.overlay .form-inline{
+  padding-top:7px;
+}
+}
+@media (max-width: 615px){
+.overlay .form-inline input{
+  width: 350px;
+}
+}
+
+.portfolio-item .modal img{
+  max-width: 100%;
+}
+.modal-close{
+  background-color: #ebaf50;
+}
+.places-description h3{
+  border-left: 7px solid #ebaf50;
+  padding: 5px 0px; 
+  padding-left: 8px;
+  background-color: #e9e9e9;
+  font-size: 20px;
+}
+.places-description h5, p{
+  padding-left: 13px;
+}
+.price{
+  font-size: 16px;
+  border-left: 1px solid #ebaf50;
+  padding-left: 5px;
+}
+.facebook{
+  display: block;
+  margin: auto;
+  background-color: #3b5998;
+}
