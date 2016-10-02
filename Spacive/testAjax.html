@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<form id="idForm">
+	Name: <input type="text" name="name"><br>
+	email: <input type="email" name="email"><br>
+	phone_number: <input type="text" name="phone_number"><br>
+	password: <input type="password" name="password"><br>
+<input type="submit" >
+</form>
+
+    
+<script src="js/jquery.js"></script>
+<script type="text/javascript">
+    $("#idForm").submit(function(e) {
+
+    	// alert("fekry");
+    var name = $("[name='name']").val();
+    var email = $("[name='email']").val();
+    var phone_number = $("[name='phone_number']").val();
+    var password = $("[name='password']").val();
+
+    // alert(name);
+	var postObject = new Object();
+	postObject.full_name = name;
+	postObject.email = email;
+	postObject.phone_number = phone_number;
+	postObject.password = password;
+
+    var url = "API/v1/user.php/signUp"; // the script where you handle the form input.
+
+    $.ajax({
+           type: "POST",
+           url: url,
+           dataType : 'json', // data type
+           data: JSON.stringify({user: postObject}), // serializes the form's elements.
+           success: function(data)
+           {
+               alert(data.status); // show response from the php script.
+           }
+         });
+
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+	});
+</script>
+</body>
+</html>

@@ -28,6 +28,37 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+       <script src="js/jquery.js"></script>
+        <script>
+        
+        var _sns = getCookie('_sns');
+        var _ses = getCookie('_ses');
+
+        
+        if (_sns == "") {
+            window.location = "login.html";
+        }
+
+        function render1() {
+             // document.querySelector('#results').innerHTML = 'Hello World!';
+            $('#result').text(_sns);
+        }
+       
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i = 0; i <ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0)==' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length,c.length);
+                }
+            }
+            return "";   
+        }
+    </script>
 
 </head>
 
@@ -63,7 +94,13 @@
                     <li class="page-scroll">
                         <a href="#contact">About Us</a>
                     </li>                
-                        <button class="btn btn-default setting">Logout</button>
+<!--                         <button class="btn btn-default setting">Logout</button> -->
+                    <li class="page-scroll">
+                        <a class="" href="#" id="dropdownMenuLink"> <p id="result" style="color:white;"></p>
+                        <script>render1();</script>
+                      
+                    </li>
+
                 </ul>
 
                  <div class="location navbar-fixed-top">

@@ -301,34 +301,51 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-8">
-                                    <form role="form">
+                                    <form role="form" action="createCospace.php">
+                                        
                                         <div class="form-group">
-                                            <label>Location</label>
-                                              <input type="text" class="form-control" id="inputEmail3" placeholder="Location" id="location">
+                                            <label  >Co-working space name *</label>                  
+                                              <input type="text" class="form-control" id="space" placeholder=" space" id="name" name="name" required>                    
                                         </div>
+
                                         <div class="form-group">
-                                            <label  >Sub-location</label>
-                                              <input type="text" class="form-control" id="Sub-location" placeholder="Sub-location" id="sublocation">
+                                            <label>Governorate *</label>
+                                              <input type="text" class="form-control" id="inputEmail3" placeholder="Governorate" id="location" name="governorate" required>
                                         </div>
+
                                         <div class="form-group">
-                                            <label  >Co-working space name</label>                  
-                                              <input type="text" class="form-control" id="space" placeholder=" space" id="name">                    
+                                            <label  >Location *</label>
+                                              <input type="text" class="form-control" id="Sub-location" placeholder="Location" id="sublocation" name="location" required>
                                         </div>
+
                                         <div class="form-group">
-                                            <label  >Description</label>                  
-                                              <textarea class="form-control" id="space" placeholder="Description" id="name"></textarea>                    
+                                            <label  >Email *</label>                  
+                                              <input class="form-control" id="space" placeholder="Email" id="name" type="email" name="email" required>                    
                                         </div>
+                                        
                                         <div class="form-group">
-                                            <label  >Price</label>       
-                                                <input type='number' class="form-control" placeholder="Price" id="price" />
+                                            <label  >Detailed Address *</label>
+                                              <textarea type="text" class="form-control" id="Sub-location" placeholder="Detailed Address" id="sublocation" name="detailed_address"></textarea>
                                         </div>
+
                                         <div class="form-group">
-                                            <label >Capacity</label>                        
-                                              <input type="number" class="form-control" min="1" max="100" placeholder="Max number of persons" />
-                                        </div>                                         
+                                            <label  >Capacity *</label>                  
+                                              <textarea class="form-control" id="space" placeholder="Capacity" id="name"></textarea>                    
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label  >Amenities *</label>                  
+                                              <textarea class="form-control" id="space" placeholder="Amenities" id="name"></textarea>                    
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label  >Phone number</label>                  
+                                              <input class="form-control" id="space" placeholder="Phone number" id="phone_number"  name="phone_number" >                    
+                                        </div>
+                                                   
                                         <div class="form-group">
                                             <label >Photo</label>                        
-                                              <input type="file" class="form-control"placeholder="Link" id="photo"/>                      
+                                              <input type="file" class="form-control" placeholder="Photo" id="photo" name="photo" />                      
                                           </div> 
                                             
                                               <button type="submit" class="btn btn-default">Create</button>

@@ -11,15 +11,15 @@
 
     <title>Spacive</title>
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="website/css/bootstrap.min.css" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link href="css/stylish-portfolio.css" rel="stylesheet">
+    <link href="website/css/stylish-portfolio.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="website/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="css/style.css"  rel="stylesheet" type="text/css">
+    <link href="website/css/style.css"  rel="stylesheet" type="text/css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -43,25 +43,25 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand logo" href="#page-top"><img src="img/logo 2.png"></a>
+                <a class="navbar-brand logo" href="#page-top"><img src="website/img/logo 2.png"></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="page-scroll">
+                   <!--  <li class="page-scroll">
                           <a class="" href="#" id="dropdownMenuLink">
                             Locations
                             <span class="caret"></span>
                           </a>
-                    </li>
-                    <li class="page-scroll">
+                    </li> -->
+                    <!-- <li class="page-scroll">
                         <a href="events.html">Events</a>
-                    </li>
+                    </li> -->
                     <li class="page-scroll">
                         <a href="#contact">About Us</a>
                     </li>
-                        <button class="btn btn-default setting">sign in</button>
+                        <a class="btn btn-default setting" href='website/login.html' >sign in</a>
                 </ul>
 
                  <div class="location navbar-fixed-top">
@@ -72,7 +72,7 @@
                         <th colspan="4">Cairo</th>
                     </tr>
                     <tr>
-                        <td><a href="places.html">Nasr City</a></td>
+                        <td><a href="website/places.html">Nasr City</a></td>
                         <td><a href="">6-Oct</a></td>
                         <td><a href="">Abbasia</a></td>
                     </tr>
@@ -125,35 +125,35 @@
         <div class="carousel-inner">
             <div class="item active">
                 <!-- Set the first background image using inline CSS below. -->
-                <div class="fill" style="background-image:url(img/slider/slider-1.jpg);"></div>
+                <div class="fill" style="background-image:url(website/img/slider/slider-1.jpg);"></div>
             </div>
             <div class="item">
                 <!-- Set the second background image using inline CSS below. -->
-                <div class="fill" style="background-image:url(img/slider/slider-2.jpg);"></div>                
+                <div class="fill" style="background-image:url(website/img/slider/slider-2.jpg);"></div>                
             </div>
             <div class="item">
                 <!-- Set the third background image using inline CSS below. -->
-                <div class="fill" style="background-image:url(img/slider/slider-5.jpg);"></div>               
+                <div class="fill" style="background-image:url(website/img/slider/slider-5.jpg);"></div>               
             </div>
         </div>
         <div class="overlay">
             <div class="row">
-                <form class="form-inline">
+                <form class="form-inline" id="signUpForm">
                     <div class="form-group">
                         <label class="sr-only" for="inputName">Name</label>
-                        <input type="text" class="form-control" placeholder="Name"></input >       
+                        <input type="text" class="form-control" placeholder="Name"  name="name" required></input >       
                     </div>
                     <div class="form-group">
                         <label class="sr-only" for="inputEmail">Email</label> 
-                        <input type="email" class="form-control" placeholder="Email"></input>    
+                        <input type="email" class="form-control" placeholder="Email" name="email" required></input>    
                     </div>
                     <div class="form-group">
                         <label class="sr-only" for="inputEmail">Phone</label> 
-                        <input type="phone" class="form-control" placeholder="Phone"></input>    
+                        <input type="phone" class="form-control" placeholder="Phone" name="phone_number" required></input>    
                     </div>
                     <div class="form-group">
                         <label class="sr-only" for="inputEmail">Password</label> 
-                        <input type="password" class="form-control" placeholder="Password"></input>
+                        <input type="password" class="form-control" placeholder="Password" name="password" required></input>
                     </div>
                     <input class="btn btn-default" type="submit" value="Start Now"></input>
                 </form>
@@ -163,8 +163,39 @@
             </div>
         </div>
     </header>
+    <script src="website/js/jquery.js"></script>
+    <script type="text/javascript">
+        $("#signUpForm").submit(function(e) {
 
+            // alert("fekry");
+        var name = $("[name='name']").val();
+        var email = $("[name='email']").val();
+        var phone_number = $("[name='phone_number']").val();
+        var password = $("[name='password']").val();
 
+        // alert(name);
+        var postObject = new Object();
+        postObject.full_name = name;
+        postObject.email = email;
+        postObject.phone_number = phone_number;
+        postObject.password = password;
+
+        var url = "API/v1/user.php/signUp"; // the script where you handle the form input.
+
+        $.ajax({
+               type: "POST",
+               url: url,
+               dataType : 'json', // data type
+               data: JSON.stringify({user: postObject}), // serializes the form's elements.
+               success: function(data)
+               {
+                   alert(data.status); // show response from the php script.
+               }
+             });
+
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+        });
+    </script>
    <!-- <header id="top" class="header">
         <div class="text-vertical-center">
             <h1>Create your life's work</h1>
@@ -227,7 +258,7 @@
                         <div class="col-md-6">
                             <div class="portfolio-item">
                                <a href="#" data-toggle="modal" data-target="#myModal1">
-                                   <img class="img-portfolio img-responsive" src="img/portfolio-1.jpg">
+                                   <img class="img-portfolio img-responsive" src="website/img/portfolio-1.jpg">
                                </a>
 
                                 <div class="modal fade" id="myModal1" role="dialog">
@@ -238,7 +269,7 @@
                                       <h4 class="modal-title">Calendar</h4>
                                     </div><!-- modal header -->
                                     <div class="modal-body">
-                                        <img class="img-portfolio img-responsive" src="img/portfolio-1.jpg">   
+                                        <img class="img-portfolio img-responsive" src="website/img/portfolio-1.jpg">   
                                     </div>
                                     <div class="modal-footer">
                                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -255,7 +286,7 @@
                                    <img class="img-portfolio img-responsive" src="img/portfolio-1.jpg">
                                 </a> -->
                                <a href="#" data-toggle="modal" data-target="#myModal2">
-                                   <img class="img-portfolio img-responsive" src="img/portfolio-2.jpg">
+                                   <img class="img-portfolio img-responsive" src="website/img/portfolio-2.jpg">
                                </a>
 
                                 <div class="modal fade" id="myModal2" role="dialog">
@@ -266,7 +297,7 @@
                                       <h4 class="modal-title">Calendar</h4>
                                     </div><!-- modal header -->
                                     <div class="modal-body">
-                                        <img class="img-portfolio img-responsive img-lg" src="img/portfolio-2.jpg">   
+                                        <img class="img-portfolio img-responsive img-lg" src="website/img/portfolio-2.jpg">   
                                     </div>
                                     <div class="modal-footer">
                                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -284,7 +315,7 @@
                                    <img class="img-portfolio img-responsive" src="img/portfolio-1.jpg">
                                 </a> -->
                                <a href="#" data-toggle="modal" data-target="#myModal3">
-                                   <img class="img-portfolio img-responsive" src="img/portfolio-3.jpg">
+                                   <img class="img-portfolio img-responsive" src="website/img/portfolio-3.jpg">
                                </a>
 
                                 <div class="modal fade" id="myModal3" role="dialog">
@@ -295,7 +326,7 @@
                                       <h4 class="modal-title">Calendar</h4>
                                     </div><!-- modal header -->
                                     <div class="modal-body">
-                                        <img class="img-portfolio img-responsive" src="img/portfolio-3.jpg">   
+                                        <img class="img-portfolio img-responsive" src="website/img/portfolio-3.jpg">   
                                     </div>
                                     <div class="modal-footer">
                                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -312,7 +343,7 @@
                                    <img class="img-portfolio img-responsive" src="img/portfolio-1.jpg">
                                 </a> -->
                                <a href="#" data-toggle="modal" data-target="#myModal4">
-                                   <img class="img-portfolio img-responsive" src="img/portfolio-4.jpg">
+                                   <img class="img-portfolio img-responsive" src="website/img/portfolio-4.jpg">
                                </a>
 
                                 <div class="modal fade" id="myModal4" role="dialog">
@@ -323,7 +354,7 @@
                                       <h4 class="modal-title">Calendar</h4>
                                     </div><!-- modal header -->
                                     <div class="modal-body">
-                                        <img class="img-portfolio img-responsive" src="img/portfolio-4.jpg">   
+                                        <img class="img-portfolio img-responsive" src="website/img/portfolio-4.jpg">   
                                     </div>
                                     <div class="modal-footer">
                                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -399,10 +430,10 @@
     </footer>
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="website/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="website/js/bootstrap.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
     <script>
