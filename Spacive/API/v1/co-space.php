@@ -63,6 +63,9 @@
 
     });
 
+
+
+
     $app->post('/getSpaces',function ($request,$response) use ($app){
         global $conn;
 
@@ -108,6 +111,7 @@
 
         return $response->write(json_encode($result));
     });
+
 
 
     $app->post('/create', function ($request, $response) use ($app){
@@ -170,6 +174,37 @@
 
         return $response->write( json_encode($result1) );
     });
+
+
+
+    $app->get('/getSpacesName',function ($request,$response) use ($app){
+        global $conn;
+
+        $r = json_decode($request->getBody());
+
+        $result = array();
+        try {
+            
+            $stmt = $conn->prepare("SELECT id,name FROM space ");
+            
+            if ($stmt->execute()) {
+                $result['status'] = 'success';
+                $result['message'] = 'spaces retrived successfully';
+                $array = array();
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    $array[] = $row;
+                }
+                    $result['spaces'] =  $array;
+            }
+            
+        } catch (PDOException $e) {
+            $result['status'] = 'failed';
+            $result['message'] = $e->getMessage();
+        }
+
+        return $response->write(json_encode($result));
+    });
+
 
 
     $app->run();
